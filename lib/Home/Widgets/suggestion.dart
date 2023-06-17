@@ -66,7 +66,7 @@ class Suggestion extends StatelessWidget {
             )),
         Positioned(
             bottom: ScreenUtil.defaultSize.height * 0.03,
-            left: ScreenUtil.defaultSize.width * 0.6,
+            left: ScreenUtil.defaultSize.width * 0.58,
             child: TextButton(
               onPressed: (){},
               style: TextButton.styleFrom(
@@ -77,7 +77,7 @@ class Suggestion extends StatelessWidget {
             )),
         Positioned(
             bottom: ScreenUtil.defaultSize.height * 0.03,
-            left: ScreenUtil.defaultSize.width * 0.78,
+            left: ScreenUtil.defaultSize.width * 0.76,
             child: TextButton(
               onPressed: (){},
               style: TextButton.styleFrom(
@@ -88,7 +88,7 @@ class Suggestion extends StatelessWidget {
             )),
         Positioned(
             bottom: ScreenUtil.defaultSize.height * 0.03,
-            left: ScreenUtil.defaultSize.width * 0.96,
+            left: ScreenUtil.defaultSize.width * 0.94,
             child: TextButton(
               onPressed: (){},
               style: TextButton.styleFrom(

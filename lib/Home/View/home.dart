@@ -119,9 +119,11 @@ class Home extends StatelessWidget {
               CarouselSlider(
                 items: suggestionList,
                 options: CarouselOptions(
-                    aspectRatio: 450 / 460,
+                    aspectRatio: ScreenUtil.defaultSize.width*1.8/ScreenUtil.defaultSize.height,
                     viewportFraction: 1,
                     onPageChanged: (index, reason) {
+                      print(ScreenUtil.defaultSize.width);
+                      print(ScreenUtil.defaultSize.height);
                       homeController.current.value = index;
                     }),
                 carouselController: _controller,
@@ -179,23 +181,19 @@ class Home extends StatelessWidget {
                                   color: Color(0xffc02739),
                                   fontFamily: "Poppins",
                                 ))),
-                        Container(
-                          padding: EdgeInsets.only(
-                              right: ScreenUtil.defaultSize.width * 0.05),
-                          child: TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                "View All",
-                                style: TextStyle(
-                                    fontFamily: "Poppins", color: Colors.grey),
-                              )),
-                        )
+                        TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "View All",
+                              style: TextStyle(
+                                  fontFamily: "Poppins", color: Colors.grey),
+                            ))
                       ],
                     ),
                     CarouselSlider(
                         items: recentList,
                         options: CarouselOptions(
-                            viewportFraction: 0.4,
+                            viewportFraction: ScreenUtil.defaultSize.width*0.00115,
                             enableInfiniteScroll: false,
                             padEnds: false)),
                     Row(
@@ -235,7 +233,7 @@ class Home extends StatelessWidget {
                     CarouselSlider(
                         items: trendingList,
                         options: CarouselOptions(
-                            viewportFraction: 0.4,
+                            viewportFraction: ScreenUtil.defaultSize.width*0.00115,
                             enableInfiniteScroll: false,
                             padEnds: false)),
                     Container(
@@ -309,7 +307,7 @@ class Home extends StatelessWidget {
                     CarouselSlider(
                         items: recentList,
                         options: CarouselOptions(
-                            viewportFraction: 0.4,
+                            viewportFraction: ScreenUtil.defaultSize.width*0.00115,
                             enableInfiniteScroll: false,
                             padEnds: false)),
                     Container(
