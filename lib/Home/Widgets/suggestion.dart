@@ -23,14 +23,14 @@ class Suggestion extends StatelessWidget {
             ),
             child: Image.asset("assets/HomeAssets/suggestionCard.png")),
         Positioned(
-            bottom: ScreenUtil.defaultSize.height * 0.12,
+            bottom: ScreenUtil.defaultSize.height * 0.16,
             left: ScreenUtil.defaultSize.width * 0.07,
             child: SvgPicture.asset(
               "assets/HomeAssets/playIcon.svg",
               fit: BoxFit.fill,
             )),
         Positioned(
-            bottom: ScreenUtil.defaultSize.height * 0.112,
+            bottom: ScreenUtil.defaultSize.height * 0.152,
             left: ScreenUtil.defaultSize.width * 0.14,
             child: Text(
               "Joker",
@@ -39,7 +39,64 @@ class Suggestion extends StatelessWidget {
                   color: Colors.white,
                   fontSize: ScreenUtil.defaultSize.width * 0.06,
                   fontFamily: "Poppins"),
-            ))
+            )),
+        Positioned(
+            bottom: ScreenUtil.defaultSize.height * 0.12,
+            left: ScreenUtil.defaultSize.width * 0.07,
+            child: Text(
+              "2hr 30 mins",
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xfffff9f9),
+                  fontSize: ScreenUtil.defaultSize.width * 0.03,
+                  fontFamily: "Poppins"),
+            )),
+        Positioned(
+            bottom: ScreenUtil.defaultSize.height * 0.035,
+            left: ScreenUtil.defaultSize.width * 0.07,
+            child: SizedBox(
+              width: ScreenUtil.defaultSize.width*0.48,
+              child: ElevatedButton(
+                onPressed: (){},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xffc02739),
+                ),
+                child: const Text("Watch Now", style: TextStyle(fontFamily: "Poppins"),),
+              ),
+            )),
+        Positioned(
+            bottom: ScreenUtil.defaultSize.height * 0.03,
+            left: ScreenUtil.defaultSize.width * 0.6,
+            child: TextButton(
+              onPressed: (){},
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.transparent,
+
+              ),
+              child: SvgPicture.asset("assets/HomeAssets/heart.svg"),
+            )),
+        Positioned(
+            bottom: ScreenUtil.defaultSize.height * 0.03,
+            left: ScreenUtil.defaultSize.width * 0.78,
+            child: TextButton(
+              onPressed: (){},
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.transparent,
+
+              ),
+              child: SvgPicture.asset("assets/HomeAssets/add.svg"),
+            )),
+        Positioned(
+            bottom: ScreenUtil.defaultSize.height * 0.03,
+            left: ScreenUtil.defaultSize.width * 0.96,
+            child: TextButton(
+              onPressed: (){},
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.transparent,
+
+              ),
+              child: SvgPicture.asset("assets/HomeAssets/forward.svg"),
+            )),
       ],
     );
   }
