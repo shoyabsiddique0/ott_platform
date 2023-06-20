@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:ott_platform/Details/View/details.dart';
 import 'package:ott_platform/Home/Controller/home_controller.dart';
 import 'package:ott_platform/Home/Widgets/cardView.dart';
 import 'package:ott_platform/Home/Widgets/suggestion.dart';
@@ -10,56 +11,80 @@ import 'package:ott_platform/Home/Widgets/suggestion.dart';
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
   HomeController homeController = Get.put(HomeController());
-  CarouselController _controller = CarouselController();
+  final CarouselController _controller = CarouselController();
+  static void getToDetails() {
+    Get.to(() => Details());
+  }
+
   List<Suggestion> suggestionList = [
-    Suggestion(),
-    Suggestion(),
-    Suggestion(),
-    Suggestion(),
+    const Suggestion(),
+    const Suggestion(),
+    const Suggestion(),
+    const Suggestion(),
   ];
   List<CardView> recentList = [
     CardView(
-        name: "Harley Quinn",
-        duration: "2hrs 30mins",
-        image: "assets/HomeAssets/card1.png"),
+      name: "Harley Quinn",
+      duration: "2hrs 30mins",
+      image: "assets/HomeAssets/card1.png",
+      action: () => Home.getToDetails(),
+    ),
     CardView(
-        name: "Harley Quinn",
-        duration: "2hrs 30mins",
-        image: "assets/HomeAssets/card1.png"),
+      name: "Harley Quinn",
+      duration: "2hrs 30mins",
+      image: "assets/HomeAssets/card1.png",
+      action: () => Home.getToDetails(),
+    ),
     CardView(
-        name: "Harley Quinn",
-        duration: "2hrs 30mins",
-        image: "assets/HomeAssets/card1.png"),
+      name: "Harley Quinn",
+      duration: "2hrs 30mins",
+      image: "assets/HomeAssets/card1.png",
+      action: () => Home.getToDetails(),
+    ),
     CardView(
-        name: "Harley Quinn",
-        duration: "2hrs 30mins",
-        image: "assets/HomeAssets/card1.png"),
+      name: "Harley Quinn",
+      duration: "2hrs 30mins",
+      image: "assets/HomeAssets/card1.png",
+      action: () => Home.getToDetails(),
+    ),
     CardView(
-        name: "Harley Quinn",
-        duration: "2hrs 30mins",
-        image: "assets/HomeAssets/card1.png"),
+      name: "Harley Quinn",
+      duration: "2hrs 30mins",
+      image: "assets/HomeAssets/card1.png",
+      action: () => Home.getToDetails(),
+    ),
   ];
   List<CardView> trendingList = [
     CardView(
-        name: "50 Shades of Grey",
-        duration: "2hrs 30mins",
-        image: "assets/HomeAssets/card2.png"),
+      name: "50 Shades of Grey",
+      duration: "2hrs 30mins",
+      image: "assets/HomeAssets/card2.png",
+      action: () => Home.getToDetails(),
+    ),
     CardView(
-        name: "50 Shades of Grey",
-        duration: "2hrs 30mins",
-        image: "assets/HomeAssets/card2.png"),
+      name: "50 Shades of Grey",
+      duration: "2hrs 30mins",
+      image: "assets/HomeAssets/card2.png",
+      action: () => Home.getToDetails(),
+    ),
     CardView(
-        name: "50 Shades of Grey",
-        duration: "2hrs 30mins",
-        image: "assets/HomeAssets/card2.png"),
+      name: "50 Shades of Grey",
+      duration: "2hrs 30mins",
+      image: "assets/HomeAssets/card2.png",
+      action: () => Home.getToDetails(),
+    ),
     CardView(
-        name: "50 Shades of Grey",
-        duration: "2hrs 30mins",
-        image: "assets/HomeAssets/card2.png"),
+      name: "50 Shades of Grey",
+      duration: "2hrs 30mins",
+      image: "assets/HomeAssets/card2.png",
+      action: () => Home.getToDetails(),
+    ),
     CardView(
-        name: "50 Shades of Grey",
-        duration: "2hrs 30mins",
-        image: "assets/HomeAssets/card2.png"),
+      name: "50 Shades of Grey",
+      duration: "2hrs 30mins",
+      image: "assets/HomeAssets/card2.png",
+      action: () => Home.getToDetails(),
+    ),
   ];
   List<Image> collectionList1 = [
     Image.asset("assets/HomeAssets/collection1.png"),
@@ -77,15 +102,14 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          canvasColor: Colors.black
-        ),
+        data: Theme.of(context).copyWith(canvasColor: Colors.black),
         child: BottomNavigationBar(
             backgroundColor: Colors.black,
             items: [
               BottomNavigationBarItem(
                   icon: SvgPicture.asset(
                     "assets/HomeAssets/home.svg",
+                    fit: BoxFit.fitHeight,
                   ),
                   label: "Home"),
               BottomNavigationBarItem(
@@ -119,11 +143,12 @@ class Home extends StatelessWidget {
               CarouselSlider(
                 items: suggestionList,
                 options: CarouselOptions(
-                    aspectRatio: ScreenUtil.defaultSize.width*1.8/ScreenUtil.defaultSize.height,
+                    aspectRatio: 0.782.w,
+                    // ScreenUtil.defaultSize.width *
+                    // 1.8 /
+                    // ScreenUtil.defaultSize.height,
                     viewportFraction: 1,
                     onPageChanged: (index, reason) {
-                      print(ScreenUtil.defaultSize.width);
-                      print(ScreenUtil.defaultSize.height);
                       homeController.current.value = index;
                     }),
                 carouselController: _controller,
@@ -152,7 +177,7 @@ class Home extends StatelessWidget {
                       );
                     }).toList(),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -178,12 +203,12 @@ class Home extends StatelessWidget {
                                 ],
                                 style: TextStyle(
                                   fontSize: ScreenUtil.defaultSize.width * 0.05,
-                                  color: Color(0xffc02739),
+                                  color: const Color(0xffc02739),
                                   fontFamily: "Poppins",
                                 ))),
                         TextButton(
                             onPressed: () {},
-                            child: Text(
+                            child: const Text(
                               "View All",
                               style: TextStyle(
                                   fontFamily: "Poppins", color: Colors.grey),
@@ -193,7 +218,8 @@ class Home extends StatelessWidget {
                     CarouselSlider(
                         items: recentList,
                         options: CarouselOptions(
-                            viewportFraction: ScreenUtil.defaultSize.width*0.00115,
+                            aspectRatio: 1.5.w,
+                            viewportFraction: 0.474.w,
                             enableInfiniteScroll: false,
                             padEnds: false)),
                     Row(
@@ -214,7 +240,7 @@ class Home extends StatelessWidget {
                                 ],
                                 style: TextStyle(
                                   fontSize: ScreenUtil.defaultSize.width * 0.05,
-                                  color: Color(0xffc02739),
+                                  color: const Color(0xffc02739),
                                   fontFamily: "Poppins",
                                 ))),
                         Container(
@@ -222,7 +248,7 @@ class Home extends StatelessWidget {
                               right: ScreenUtil.defaultSize.width * 0.05),
                           child: TextButton(
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 "View All",
                                 style: TextStyle(
                                     fontFamily: "Poppins", color: Colors.grey),
@@ -233,9 +259,44 @@ class Home extends StatelessWidget {
                     CarouselSlider(
                         items: trendingList,
                         options: CarouselOptions(
-                            viewportFraction: ScreenUtil.defaultSize.width*0.00115,
+                            aspectRatio: 1.5.w,
+                            viewportFraction: 0.474.w,
                             enableInfiniteScroll: false,
                             padEnds: false)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        RichText(
+                            text: TextSpan(
+                                text: "Featured ",
+                                children: [
+                                  TextSpan(
+                                      text: "Collection",
+                                      style: TextStyle(
+                                          fontSize:
+                                              ScreenUtil.defaultSize.width *
+                                                  0.05,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                                style: TextStyle(
+                                  fontSize: ScreenUtil.defaultSize.width * 0.05,
+                                  color: const Color(0xffc02739),
+                                  fontFamily: "Poppins",
+                                ))),
+                        Container(
+                          padding: EdgeInsets.only(
+                              right: ScreenUtil.defaultSize.width * 0.05),
+                          child: TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                "View All",
+                                style: TextStyle(
+                                    fontFamily: "Poppins", color: Colors.grey),
+                              )),
+                        )
+                      ],
+                    ),
                     Container(
                       padding: EdgeInsets.only(
                           right: ScreenUtil.defaultSize.width * 0.05),
@@ -288,7 +349,7 @@ class Home extends StatelessWidget {
                                 ],
                                 style: TextStyle(
                                   fontSize: ScreenUtil.defaultSize.width * 0.05,
-                                  color: Color(0xffc02739),
+                                  color: const Color(0xffc02739),
                                   fontFamily: "Poppins",
                                 ))),
                         Container(
@@ -296,7 +357,7 @@ class Home extends StatelessWidget {
                               right: ScreenUtil.defaultSize.width * 0.05),
                           child: TextButton(
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 "View All",
                                 style: TextStyle(
                                     fontFamily: "Poppins", color: Colors.grey),
@@ -307,9 +368,44 @@ class Home extends StatelessWidget {
                     CarouselSlider(
                         items: recentList,
                         options: CarouselOptions(
-                            viewportFraction: ScreenUtil.defaultSize.width*0.00115,
+                            aspectRatio: 1.5.w,
+                            viewportFraction: 0.474.w,
                             enableInfiniteScroll: false,
                             padEnds: false)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        RichText(
+                            text: TextSpan(
+                                text: "Featured ",
+                                children: [
+                                  TextSpan(
+                                      text: "Collection",
+                                      style: TextStyle(
+                                          fontSize:
+                                              ScreenUtil.defaultSize.width *
+                                                  0.05,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                                style: TextStyle(
+                                  fontSize: ScreenUtil.defaultSize.width * 0.05,
+                                  color: const Color(0xffc02739),
+                                  fontFamily: "Poppins",
+                                ))),
+                        Container(
+                          padding: EdgeInsets.only(
+                              right: ScreenUtil.defaultSize.width * 0.05),
+                          child: TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                "View All",
+                                style: TextStyle(
+                                    fontFamily: "Poppins", color: Colors.grey),
+                              )),
+                        )
+                      ],
+                    ),
                     Container(
                       padding: EdgeInsets.only(
                           right: ScreenUtil.defaultSize.width * 0.05),

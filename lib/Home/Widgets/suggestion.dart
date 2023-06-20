@@ -23,77 +23,77 @@ class Suggestion extends StatelessWidget {
             ),
             child: Image.asset("assets/HomeAssets/suggestionCard.png")),
         Positioned(
-            bottom: ScreenUtil.defaultSize.height * 0.16,
-            left: ScreenUtil.defaultSize.width * 0.07,
+            bottom: 98.h,
+            left: 25.2.w,
             child: SvgPicture.asset(
               "assets/HomeAssets/playIcon.svg",
               fit: BoxFit.fill,
             )),
         Positioned(
-            bottom: ScreenUtil.defaultSize.height * 0.152,
-            left: ScreenUtil.defaultSize.width * 0.14,
+            bottom: 92.h,
+            left: 45.4.w,
             child: Text(
               "Joker",
               style: TextStyle(
                   fontWeight: FontWeight.w700,
                   color: Colors.white,
-                  fontSize: ScreenUtil.defaultSize.width * 0.06,
+                  fontSize: 21.6.w,
                   fontFamily: "Poppins"),
             )),
         Positioned(
-            bottom: ScreenUtil.defaultSize.height * 0.12,
-            left: ScreenUtil.defaultSize.width * 0.07,
+            bottom: 72.h,
+            left: 25.w,
             child: Text(
               "2hr 30 mins",
               style: TextStyle(
                   fontWeight: FontWeight.w700,
                   color: const Color(0xfffff9f9),
-                  fontSize: ScreenUtil.defaultSize.width * 0.03,
+                  fontSize: 10.8.w,
                   fontFamily: "Poppins"),
             )),
         Positioned(
-            bottom: ScreenUtil.defaultSize.height * 0.035,
-            left: ScreenUtil.defaultSize.width * 0.07,
+            bottom: 21.5.h,
+            left: 25.w,
             child: SizedBox(
-              width: ScreenUtil.defaultSize.width*0.48,
+              width: 140.w,
               child: ElevatedButton(
-                onPressed: (){},
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xffc02739),
                 ),
-                child: const Text("Watch Now", style: TextStyle(fontFamily: "Poppins"),),
+                child: const Text(
+                  "Watch Now",
+                  style: TextStyle(fontFamily: "Poppins"),
+                ),
               ),
             )),
         Positioned(
-            bottom: ScreenUtil.defaultSize.height * 0.03,
-            left: ScreenUtil.defaultSize.width * 0.58,
+            bottom: 18.h,
+            right: 115.w,
             child: TextButton(
-              onPressed: (){},
+              onPressed: () {},
               style: TextButton.styleFrom(
                 backgroundColor: Colors.transparent,
-
               ),
               child: SvgPicture.asset("assets/HomeAssets/heart.svg"),
             )),
         Positioned(
-            bottom: ScreenUtil.defaultSize.height * 0.03,
-            left: ScreenUtil.defaultSize.width * 0.76,
+            bottom: 18.h,
+            right: 58.w,
             child: TextButton(
-              onPressed: (){},
+              onPressed: () {},
               style: TextButton.styleFrom(
                 backgroundColor: Colors.transparent,
-
               ),
               child: SvgPicture.asset("assets/HomeAssets/add.svg"),
             )),
         Positioned(
-            bottom: ScreenUtil.defaultSize.height * 0.03,
-            left: ScreenUtil.defaultSize.width * 0.94,
+            bottom: 18.h,
+            right: 1.w,
             child: TextButton(
-              onPressed: (){},
+              onPressed: () {},
               style: TextButton.styleFrom(
                 backgroundColor: Colors.transparent,
-
               ),
               child: SvgPicture.asset("assets/HomeAssets/forward.svg"),
             )),
