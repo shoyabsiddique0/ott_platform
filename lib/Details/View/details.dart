@@ -2,7 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:ott_platform/Details/Widgets/episode.dart';
+import 'package:ott_platform/Video_Screen/View/video_screen.dart';
 
 class Details extends StatelessWidget {
   const Details({Key? key}) : super(key: key);
@@ -161,15 +163,33 @@ class Details extends StatelessWidget {
                   height: 16.w,
                 ),
                 CarouselSlider(
-                    items: const [
+                    items: [
                       Episode(
                         epName: "Ep 1 - Lorem ipsum",
+                        goTo: () {
+                          Get.to(() => VideoScreen(
+                                link:
+                                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                              ));
+                        },
                       ),
                       Episode(
                         epName: "Ep 2 - Lorem ipsum",
+                        goTo: () {
+                          Get.to(() => VideoScreen(
+                                link:
+                                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                              ));
+                        },
                       ),
                       Episode(
                         epName: "Ep 3 - Lorem ipsum",
+                        goTo: () {
+                          Get.to(() => VideoScreen(
+                                link:
+                                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                              ));
+                        },
                       ),
                     ],
                     options: CarouselOptions(
