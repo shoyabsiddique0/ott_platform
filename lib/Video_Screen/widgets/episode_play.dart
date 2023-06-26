@@ -8,13 +8,16 @@ class EpisodePlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20.w),
+      padding: EdgeInsets.only(left: 20.w, right: 5.w),
       child: Row(
         children: [
-          Image.asset(
-            "assets/DetailsAssets/Episode.png",
-            width: 125.w,
+          SizedBox(
+            width: 120.w,
             height: 76.w,
+            child: Image.asset(
+              "assets/DetailsAssets/Episode.png",
+              fit: BoxFit.fill,
+            ),
           ),
           SizedBox(
             width: 15.w,

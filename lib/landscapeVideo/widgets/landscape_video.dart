@@ -74,54 +74,54 @@ class LandscapeVideo extends StatelessWidget {
                             )
                           ],
                         )),
-                    Positioned(
-                      top: 60.w,
-                      left: 100.w,
-                      right: 100.w,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TextButton(
-                            child: SvgPicture.asset(
-                              "assets/reverse.svg",
-                              width: 15.w,
-                              height: 15.w,
+                    Center(
+                      child: SizedBox(
+                        width: 250.w,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            TextButton(
+                              child: SvgPicture.asset(
+                                "assets/reverse.svg",
+                                width: 15.w,
+                                height: 15.w,
+                              ),
+                              onPressed: () {
+                                controller.controller.seekTo(
+                                    controller.controller.value.position -
+                                        const Duration(seconds: 10));
+                              },
                             ),
-                            onPressed: () {
-                              controller.controller.seekTo(
-                                  controller.controller.value.position -
-                                      const Duration(seconds: 10));
-                            },
-                          ),
-                          TextButton(
-                            child: SvgPicture.asset(
-                              controller.isPlaying.value
-                                  ? "assets/pause.svg"
-                                  : "assets/play.svg",
-                              width: 25.w,
-                              height: 25.w,
+                            TextButton(
+                              child: SvgPicture.asset(
+                                controller.isPlaying.value
+                                    ? "assets/pause.svg"
+                                    : "assets/play.svg",
+                                width: 25.w,
+                                height: 25.w,
+                              ),
+                              onPressed: () {
+                                controller.isPlaying.value =
+                                    !controller.isPlaying.value;
+                                controller.controller.value.isPlaying
+                                    ? controller.controller.pause()
+                                    : controller.controller.play();
+                              },
                             ),
-                            onPressed: () {
-                              controller.isPlaying.value =
-                                  !controller.isPlaying.value;
-                              controller.controller.value.isPlaying
-                                  ? controller.controller.pause()
-                                  : controller.controller.play();
-                            },
-                          ),
-                          TextButton(
-                            child: SvgPicture.asset(
-                              "assets/forward.svg",
-                              width: 15.w,
-                              height: 15.w,
+                            TextButton(
+                              child: SvgPicture.asset(
+                                "assets/forward.svg",
+                                width: 15.w,
+                                height: 15.w,
+                              ),
+                              onPressed: () {
+                                controller.controller.seekTo(
+                                    controller.controller.value.position +
+                                        const Duration(seconds: 10));
+                              },
                             ),
-                            onPressed: () {
-                              controller.controller.seekTo(
-                                  controller.controller.value.position +
-                                      const Duration(seconds: 10));
-                            },
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ), //Controls
                     Obx(

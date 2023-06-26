@@ -107,11 +107,12 @@ class Home extends StatelessWidget {
             backgroundColor: Colors.black,
             items: [
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(
-                    "assets/HomeAssets/home.svg",
-                    fit: BoxFit.fitHeight,
-                  ),
-                  label: "Home"),
+                icon: SvgPicture.asset(
+                  "assets/HomeAssets/home.svg",
+                  fit: BoxFit.fitHeight,
+                ),
+                label: "Home",
+              ),
               BottomNavigationBarItem(
                   icon: SvgPicture.asset(
                     "assets/HomeAssets/category.svg",

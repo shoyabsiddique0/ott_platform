@@ -14,13 +14,14 @@ class VideoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Column(
-        // direction: Axis.vertical,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          PotraitPlayer(link: link, aspectRatio: 6 / 4),
-          Expanded(
-            child: ListView(
+      body: SingleChildScrollView(
+        child: Column(
+          // direction: Axis.vertical,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            PotraitPlayer(link: link, aspectRatio: 6 / 4),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: EdgeInsets.only(top: 20.w, left: 20.w, right: 20.w),
@@ -47,12 +48,15 @@ class VideoScreen extends StatelessWidget {
                 SizedBox(
                   height: 25.w,
                 ),
-                Text(
-                  'Episode List',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 20.w,
-                    fontWeight: FontWeight.w500,
+                Padding(
+                  padding: EdgeInsets.only(left: 25.w, right: 20.w),
+                  child: Text(
+                    'Episode List',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 20.w,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -80,8 +84,8 @@ class VideoScreen extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

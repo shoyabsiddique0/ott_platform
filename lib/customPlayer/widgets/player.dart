@@ -50,13 +50,10 @@ class PotraitPlayer extends StatelessWidget {
                           height: double.infinity,
                           child: Stack(
                             children: [
-                              Positioned(
-                                top: 80.w,
-                                left: 50.w,
-                                right: 50.w,
+                              Center(
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     TextButton(
                                       child: SvgPicture.asset(
