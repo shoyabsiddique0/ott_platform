@@ -7,6 +7,7 @@ import 'package:ott_platform/Details/View/details.dart';
 import 'package:ott_platform/Home/Controller/home_controller.dart';
 import 'package:ott_platform/Home/Widgets/cardView.dart';
 import 'package:ott_platform/Home/Widgets/suggestion.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 // ignore: must_be_immutable
 class Home extends StatelessWidget {
@@ -142,43 +143,49 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CarouselSlider(
-                items: suggestionList,
-                options: CarouselOptions(
-                    aspectRatio: 0.782.w,
-                    // ScreenUtil.defaultSize.width *
-                    // 1.8 /
-                    // ScreenUtil.defaultSize.height,
-                    viewportFraction: 1,
-                    onPageChanged: (index, reason) {
-                      homeController.current.value = index;
-                    }),
-                carouselController: _controller,
+              Showcase(
+                description: "Best Suggestions for You",
+                key: homeController.suggestionKey,
+                child: CarouselSlider(
+                  items: suggestionList,
+                  options: CarouselOptions(
+                      aspectRatio: 0.782.w,
+                      // ScreenUtil.defaultSize.width *
+                      // 1.8 /
+                      // ScreenUtil.defaultSize.height,
+                      viewportFraction: 1,
+                      onPageChanged: (index, reason) {
+                        homeController.current.value = index;
+                      }),
+                  carouselController: _controller,
+                ),
               ),
-              Obx(() => Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: suggestionList.asMap().entries.map((entry) {
-                      return GestureDetector(
-                        onTap: () => _controller.animateToPage(entry.key),
-                        child: Container(
-                          width: 6.0,
-                          height: 6.0,
-                          margin: const EdgeInsets.symmetric(
-                              vertical: 8.0, horizontal: 4.0),
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: (Theme.of(context).brightness ==
-                                          Brightness.dark
-                                      ? const Color(0xffD6B5BB)
-                                      : const Color(0xffE41238))
-                                  .withOpacity(
-                                      homeController.current.value == entry.key
-                                          ? 0.9
-                                          : 0.4)),
-                        ),
-                      );
-                    }).toList(),
-                  )),
+              Obx(
+                () => Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: suggestionList.asMap().entries.map((entry) {
+                    return GestureDetector(
+                      onTap: () => _controller.animateToPage(entry.key),
+                      child: Container(
+                        width: 6.0,
+                        height: 6.0,
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 4.0),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: (Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? const Color(0xffD6B5BB)
+                                    : const Color(0xffE41238))
+                                .withOpacity(
+                                    homeController.current.value == entry.key
+                                        ? 0.9
+                                        : 0.4)),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -217,13 +224,18 @@ class Home extends StatelessWidget {
                             ))
                       ],
                     ),
-                    CarouselSlider(
-                        items: recentList,
-                        options: CarouselOptions(
-                            aspectRatio: 1.5.w,
-                            viewportFraction: 0.474.w,
-                            enableInfiniteScroll: false,
-                            padEnds: false)),
+                    Showcase(
+                        onTargetClick: () => Get.to(() => Details()),
+                        disposeOnTap: true,
+                        key: homeController.recentKey,
+                        description: "Recently played media by you",
+                        child: CarouselSlider(
+                            items: recentList,
+                            options: CarouselOptions(
+                                aspectRatio: 1.5.w,
+                                viewportFraction: 0.474.w,
+                                enableInfiniteScroll: false,
+                                padEnds: false))),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -258,13 +270,18 @@ class Home extends StatelessWidget {
                         )
                       ],
                     ),
-                    CarouselSlider(
-                        items: trendingList,
-                        options: CarouselOptions(
-                            aspectRatio: 1.5.w,
-                            viewportFraction: 0.474.w,
-                            enableInfiniteScroll: false,
-                            padEnds: false)),
+                    Showcase(
+                        onTargetClick: () => Get.to(() => Details()),
+                        disposeOnTap: true,
+                        key: homeController.trendingKey,
+                        description: "Trending movies and series",
+                        child: CarouselSlider(
+                            items: trendingList,
+                            options: CarouselOptions(
+                                aspectRatio: 1.5.w,
+                                viewportFraction: 0.474.w,
+                                enableInfiniteScroll: false,
+                                padEnds: false))),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -302,13 +319,16 @@ class Home extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.only(
                           right: ScreenUtil.defaultSize.width * 0.05),
-                      child: CarouselSlider(
-                          items: collectionList1,
-                          options: CarouselOptions(
-                              onPageChanged: (index, reason) {
-                                homeController.collection1.value = index;
-                              },
-                              viewportFraction: 1)),
+                      child: Showcase(
+                          key: homeController.collectionKey,
+                          description: "Collections you can see",
+                          child: CarouselSlider(
+                              items: collectionList1,
+                              options: CarouselOptions(
+                                  onPageChanged: (index, reason) {
+                                    homeController.collection1.value = index;
+                                  },
+                                  viewportFraction: 1))),
                     ),
                     Obx(() => Row(
                           mainAxisAlignment: MainAxisAlignment.center,

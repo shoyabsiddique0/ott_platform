@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:ott_platform/Details/Controller/details_controller.dart';
 import 'package:ott_platform/Details/Widgets/episode.dart';
 import 'package:ott_platform/Video_Screen/View/video_screen.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 class Details extends StatelessWidget {
-  const Details({Key? key}) : super(key: key);
-
+  Details({Key? key}) : super(key: key);
+  final DetailsController detailsController = Get.put(DetailsController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,42 +91,55 @@ class Details extends StatelessWidget {
                   bottom: 18.h,
                   left: 10.w,
                   child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                    ),
-                    child: SvgPicture.asset("assets/HomeAssets/play.svg"),
-                  )),
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                      ),
+                      child: Showcase(
+                        key: detailsController.playKey,
+                        description: "Play",
+                        child: SvgPicture.asset("assets/HomeAssets/play.svg"),
+                      ))),
               Positioned(
                   bottom: 18.h,
                   left: 67.w,
                   child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                    ),
-                    child: SvgPicture.asset("assets/HomeAssets/heart.svg"),
-                  )),
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                      ),
+                      child: Showcase(
+                        key: detailsController.likeKey,
+                        description: "Like",
+                        child: SvgPicture.asset("assets/HomeAssets/heart.svg"),
+                      ))),
               Positioned(
                   bottom: 18.h,
                   left: 124.w,
                   child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                    ),
-                    child: SvgPicture.asset("assets/HomeAssets/add.svg"),
-                  )),
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                      ),
+                      child: Showcase(
+                        key: detailsController.addKey,
+                        description: "Add to playlist",
+                        child: SvgPicture.asset("assets/HomeAssets/add.svg"),
+                      ))),
               Positioned(
                   bottom: 18.h,
                   left: 182.w,
                   child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                    ),
-                    child: SvgPicture.asset("assets/HomeAssets/forward.svg"),
-                  )),
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                      ),
+                      child: Showcase(
+                        key: detailsController.shareKey,
+                        description: "Share",
+                        child:
+                            SvgPicture.asset("assets/HomeAssets/forward.svg"),
+                      ))),
             ],
           ),
           Container(
@@ -132,22 +147,30 @@ class Details extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Description",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xbffff9f9),
-                      fontSize: 16.w,
-                      fontFamily: "Poppins"),
-                ),
-                Text(
-                  "Fifty Shades is a British-American film trilogy series based on the Fifty Shades trilogy by English author E. L. James. It is distributed by Universal Studios and stars Dakota Johnson and Jamie Dornan as the lead roles Anastasia Steele and Christian Grey, respectively",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xbffff9f9),
-                      fontSize: 10.w,
-                      fontFamily: "Poppins"),
-                ),
+                Showcase(
+                    key: detailsController.descKey,
+                    description: "Description",
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Description",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: const Color(0xbffff9f9),
+                              fontSize: 16.w,
+                              fontFamily: "Poppins"),
+                        ),
+                        Text(
+                          "Fifty Shades is a British-American film trilogy series based on the Fifty Shades trilogy by English author E. L. James. It is distributed by Universal Studios and stars Dakota Johnson and Jamie Dornan as the lead roles Anastasia Steele and Christian Grey, respectively",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: const Color(0xbffff9f9),
+                              fontSize: 10.w,
+                              fontFamily: "Poppins"),
+                        ),
+                      ],
+                    )),
                 SizedBox(
                   height: 24.w,
                 ),
@@ -162,40 +185,43 @@ class Details extends StatelessWidget {
                 SizedBox(
                   height: 16.w,
                 ),
-                CarouselSlider(
-                    items: [
-                      Episode(
-                        epName: "Ep 1 - Lorem ipsum",
-                        goTo: () {
-                          Get.to(() => VideoScreen(
-                                link:
-                                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                              ));
-                        },
-                      ),
-                      Episode(
-                        epName: "Ep 2 - Lorem ipsum",
-                        goTo: () {
-                          Get.to(() => VideoScreen(
-                                link:
-                                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                              ));
-                        },
-                      ),
-                      Episode(
-                        epName: "Ep 3 - Lorem ipsum",
-                        goTo: () {
-                          Get.to(() => VideoScreen(
-                                link:
-                                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                              ));
-                        },
-                      ),
-                    ],
-                    options: CarouselOptions(
-                        viewportFraction: 0.5.w,
-                        padEnds: false,
-                        enableInfiniteScroll: false))
+                Showcase(
+                    key: detailsController.episodeKey,
+                    description: "Episodes",
+                    child: CarouselSlider(
+                        items: [
+                          Episode(
+                            epName: "Ep 1 - Lorem ipsum",
+                            goTo: () {
+                              Get.to(() => VideoScreen(
+                                    link:
+                                        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                                  ));
+                            },
+                          ),
+                          Episode(
+                            epName: "Ep 2 - Lorem ipsum",
+                            goTo: () {
+                              Get.to(() => VideoScreen(
+                                    link:
+                                        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                                  ));
+                            },
+                          ),
+                          Episode(
+                            epName: "Ep 3 - Lorem ipsum",
+                            goTo: () {
+                              Get.to(() => VideoScreen(
+                                    link:
+                                        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                                  ));
+                            },
+                          ),
+                        ],
+                        options: CarouselOptions(
+                            viewportFraction: 0.5.w,
+                            padEnds: false,
+                            enableInfiniteScroll: false)))
               ],
             ),
           ),
