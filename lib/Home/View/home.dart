@@ -8,6 +8,7 @@ import 'package:ott_platform/Home/Controller/home_controller.dart';
 import 'package:ott_platform/Home/Widgets/cardView.dart';
 import 'package:ott_platform/Home/Widgets/suggestion.dart';
 
+// ignore: must_be_immutable
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
   HomeController homeController = Get.put(HomeController());
@@ -107,11 +108,12 @@ class Home extends StatelessWidget {
             backgroundColor: Colors.black,
             items: [
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(
-                    "assets/HomeAssets/home.svg",
-                    fit: BoxFit.fitHeight,
-                  ),
-                  label: "Home"),
+                icon: SvgPicture.asset(
+                  "assets/HomeAssets/home.svg",
+                  fit: BoxFit.fitHeight,
+                ),
+                label: "Home",
+              ),
               BottomNavigationBarItem(
                   icon: SvgPicture.asset(
                     "assets/HomeAssets/category.svg",
